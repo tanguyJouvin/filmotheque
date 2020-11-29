@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="tanguy jouvin">
+    <link rel="icon" href="../../favicon.ico"/>
+
+    <title>Filmothèque</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<div class="container">
+    <!-- navbar -->
+    <nav th:replace="navbar.html :: top"></nav>
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+    <!-- boucle permettant d'afficher la liste de film -->
+     <div th:each="film : ${films}">
+     
+        <!-- Le titre redirige vers la page Détail -->
+       
+        <a th:href="@{/film/{id}(id=${film.id})}">
+        	 <h3 th:text="${film.titre}"></h3>
+       	</a>
+         <p>Réalisateur/trice du film : <span th:text="${film.realisateur.nom} + ' ' + ${film.realisateur.prenom}"></span></p>
+        <p th:text="${film.description}"></p>
+        
+       </div>
+    </div>
+</div> <!-- /container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+
+</body>
+</html>

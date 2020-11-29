@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico"/>
+
+    <title>Filmothèque</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+<div class="container-fluid">
+ <!-- navbar -->
+    <nav th:replace="navbar.html :: top"></nav>
+    
+	<div class="row">
+		<div class="col-md-12">
+			 <h3 th:text="'titre du film : ' + ${film.titre}"></h3>
+			 
+			 <!-- boutons de filtre par catégorie -->
+			<div class="btn-group" role="group">
+			 	<button class="btn btn-secondary" type="button">
+					<p th:text="${film.categorie.libelle}"></p>
+				</button>
+			 </div>
+
+			</div>
+			<!-- carte liée au film image  -->
+			<div class="media">
+				<img class="mr-3" alt="Bootstrap Media Preview" src="https://www.layoutit.com/img/sports-q-c-64-64-8.jpg" />
+				<div class="media-body">
+
+					<h3 class="mt-0"
+						th:text="${film.realisateur.nom} +' ' + ${film.realisateur.prenom}">
+					 </h3>
+					 
+					<p th:text="${film.description}"></p>
+				
+					<!-- Avis -->
+					<div class="media mt-3">
+						<a class="pr-3" href="@{}"></a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- /container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>

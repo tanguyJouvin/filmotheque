@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="@{/img/favicon/favicon.ico}" />
+
+    <title>Filmothèque</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+	<!-- Image and text -->
+	<nav class="navbar navbar-light bg-light" th:fragment="top">
+	  <a class="navbar-brand" th:href="@{/film}">
+	    <img th:src="@{/img/titre.png}" 
+	    width="200" height="100" 
+	    class="d-inline-block align-top" alt="logo" 
+	    loading="lazy">
+	  </a>
+	   <a class="navbar-brand" th:href="@{/film}">
+	    <button type="button" class="btn btn-dark">Retour à la liste des films</button>
+	   </a>
+	 
+	</nav>
+</body>
+</html>
