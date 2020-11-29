@@ -2,12 +2,13 @@ package fr.regexcie.filmotheque.controllers;
 
 /**
  * 
- * @author valentin
+ * @author tanguy
  *
  */
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -25,20 +26,26 @@ public class MembreController {
 		this.service = service;
 	}
 	
-	@GetMapping({"/", "", "/login"})
-	public String login() {
-		return "login";
+	@GetMapping({"/", "", "/connexion"})
+	public String connexion(Model model) {
+		
+		return "connexion";
 	}
 	
-	@PostMapping({ "/connexion"})
-	public String connexion(Model modele, @RequestParam("login") String login, @RequestParam("mdp") String mdp) {
+	@PostMapping("/connexion")
+	public String connexionOk(@RequestParam String login,
+			@RequestParam String mdp,
+	//@ModelAttribute Membre membre, 
+			Model model) {
 		
-		System.out.println("oui");
-		if (service.connexion(login, mdp)){
+		
+		System.out.println("model " + model);
+		
+		if (service.connexion(login,mdp)){
 			
-			return "accueil";
+			return "redirect:/film";
 		}
 		
-		return "login";
+		return "connexion";
 	}
 }

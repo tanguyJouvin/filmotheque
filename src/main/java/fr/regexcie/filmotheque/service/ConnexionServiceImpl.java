@@ -9,7 +9,7 @@ import fr.regexcie.filmotheque.dal.MembreRepository;
 
 /**
  * 
- * @author valentin
+ * @author tanguy
  *
  */
 @Service
@@ -22,17 +22,15 @@ public class ConnexionServiceImpl implements ConnexionService{
 		this.membreDAO = membreDAO;
 	}
 	
+
 	/**
-	 * @author Valentin
-	 * @return Membre
-	 * @param String login, String mdp
-	 * Verifie si les login et mot de passe correspondent à un membre
+	 * méthode de contrôle de l'identité de l'utilisateur en cours de connexion
 	 */
 	@Override
 	public boolean connexion(String login, String mdp) {
 		boolean result;
 		
-		if (membreDAO.findByLoginAndMotDePasse(login, mdp).equals(null))
+		if (membreDAO.findByLoginAndMdp(login, mdp).equals(null))
 		{
 			result = false;
 		}

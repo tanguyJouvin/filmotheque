@@ -76,8 +76,15 @@ public class AccueilController {
         return "avis";
     }
     
+    @GetMapping("/creation")
+    public String creerFilm(Model model){
+    	//TODO à finir
+        
+        return "creation";
+    }
+    
     @PostMapping("/creation")
-    public String creation(Model model){
+    public String modifierFilm(Model model){
     	//TODO à finir
         return "creation";
     }

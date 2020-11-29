@@ -6,11 +6,11 @@ import fr.regexcie.filmotheque.bo.Membre;
 
 /**
  * 
- * @author valentin
+ * @author tanguy
  *
  */
 public interface MembreRepository extends JpaRepository<Membre, Integer>{
 
-	Membre findByLoginAndMotDePasse(String login, String mdp);
+	Membre findByLoginAndMdp(String login, String mdp);
 
 }

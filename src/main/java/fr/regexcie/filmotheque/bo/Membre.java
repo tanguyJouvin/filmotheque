@@ -9,44 +9,48 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * 
- * @author valentin
+ * @author tanguy
  *
  */
 @Entity
 public class Membre implements Serializable{
 
 	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	/**
 	 *ATTRIBUTS DE CLASSE
 	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	// @NotBlank genere une erreur lors de la sauvegarde en bdd
+	@NotBlank
 	private String login;
-	private String motDePasse;
+	private String mdp;
 	private boolean estAdmin;
 	
 	/**
 	 *CONSTRUCTEURS
 	 */
-	public Membre(String login, String mdp, boolean estAdmin) {
+	public Membre() {}
+	
+	public Membre(@NotBlank String login, String mdp, boolean estAdmin) {
+		super();
 		this.login = login;
-		this.motDePasse = mdp;
+		this.mdp = mdp;
 		this.estAdmin = estAdmin;
 	}
 
-	public Membre() {}
+	public Membre(Long id, @NotBlank String login, String mdp, boolean estAdmin) {
+		super();
+		this.id = id;
+		this.login = login;
+		this.mdp = mdp;
+		this.estAdmin = estAdmin;
+	}
 
 	/**
 	 *GETTERS ET SETTERS
 	 */
-
 	public Long getId() {
 		return id;
 	}
@@ -54,7 +58,7 @@ public class Membre implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getLogin() {
 		return login;
 	}
@@ -63,12 +67,12 @@ public class Membre implements Serializable{
 		this.login = login;
 	}
 
-	public String getMotDePasse() {
-		return motDePasse;
+	public String getMdp() {
+		return mdp;
 	}
 
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
 	}
 
 	public boolean isEstAdmin() {
@@ -81,7 +85,7 @@ public class Membre implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Le Membre est [login=" + login + ", motDePasse=" + motDePasse + ", estAdmin=" + estAdmin + "]";
+		return "Membre [id=" + id + ", login=" + login + ", mdp=" + mdp + ", estAdmin=" + estAdmin + "]";
 	}
-	
+
 }

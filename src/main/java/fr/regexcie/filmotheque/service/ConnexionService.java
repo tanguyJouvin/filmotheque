@@ -2,7 +2,7 @@ package fr.regexcie.filmotheque.service;
 
 /**
  * 
- * @author valentin
+ * @author tanguy
  *
  */
 public interface ConnexionService {
